@@ -3,7 +3,9 @@
 
 const App = () => {
   return (
-    <div>App</div>
+    <main className="text-violet-300 font-zentry text-6xl">
+      Welcome to Awwards
+    </main>
   )
 }
 
