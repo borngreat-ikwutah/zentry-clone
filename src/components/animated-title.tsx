@@ -3,17 +3,19 @@ import { useEffect, useRef } from "react";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import clsx from "clsx";
 
-
-
 gsap.registerPlugin(ScrollTrigger);
 
 interface AnimatedTitleProps {
-    title: string;
-    containerClass?: string;
+  title: string;
+  containerClass?: string;
+  sectionId?: string;
 }
 
-
-const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
+const AnimatedTitle = ({
+  title,
+  containerClass,
+  sectionId,
+}: AnimatedTitleProps) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -43,7 +45,11 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitleProps) => {
   }, []);
 
   return (
-    <div ref={containerRef} className={clsx("animated-title", containerClass)}>
+    <div
+      ref={containerRef}
+      className={clsx("animated-title", containerClass)}
+      id={sectionId}
+    >
       {title.split("<br />").map((line, index) => (
         <div
           key={index}
